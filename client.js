@@ -1,6 +1,5 @@
 $(document).ready(readyNow);
 
-let employeeObjectArray = [];
 let monthlySalaryPay = 0;
 
 function readyNow(){
@@ -11,8 +10,9 @@ function readyNow(){
 }
 
 function handleDelete() {
+    let deletedSalary = $(this).closest('.salary').text();
     console.log('clicked');
-
+    console.log(deletedSalary);
     $(this).closest('.dataRow').remove();
 
     
@@ -29,8 +29,7 @@ function addEmployee() {
         annualSalary : $('#annualSalary').val()
     };
     //console.log(addedEmployee);
-    //push object to array for later
-    employeeObjectArray.push(addedEmployee);
+
     monthlySalaryPay += parseFloat(addedEmployee.annualSalary / 12);
 
    
@@ -54,9 +53,8 @@ function addEmployee() {
     <td>${addedEmployee.lastName}</td>
     <td>${addedEmployee.employeeID}</td>
     <td>${addedEmployee.employeeTitle}</td>
-    <td>${addedEmployee.annualSalary}</td>
+    <td class = "salary">${addedEmployee.annualSalary}</td>
     <td><buttton class="deleteBtn" type="button">Delete</button></td>
     </tr>`);
-
 
 }
