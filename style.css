@@ -1,0 +1,17 @@
+table {
+    display: table; 
+    width: 100%;
+    border:1px solid black
+  }
+
+  tr, td{
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+  }
+.input {
+    width: 19%;
+}
+
+#monthlyTotal, #submitBtn{
+float: right;
+}
