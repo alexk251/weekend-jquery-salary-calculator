@@ -7,6 +7,15 @@ function readyNow(){
     console.log('Jquery is working!');
 
     $('#submitBtn').on('click',addEmployee);
+    $('#employeeTable').on('click','.deleteBtn', handleDelete);
+}
+
+function handleDelete() {
+    console.log('clicked');
+
+    $(this).closest('.dataRow').remove();
+
+    
 }
 
 function addEmployee() {
@@ -30,14 +39,23 @@ function addEmployee() {
 
     $('#monthlyTotal').text(`Total Monthly:$${monthlySalaryPay}`);
 
+    if (monthlySalaryPay > 20000) {
+        $('#monthlyTotal').addClass('red');
+    }
 
+    $('#firstNameInput').val('');
+    $('#lastNameInput').val('');
+    $('#employeeID').val('');
+    $('#employeeTitle').val('');
+    $('#annualSalary').val('');
 
-    $('#employeeTable').append(`<tr>
+    $('#employeeTable').append(`<tr class= "dataRow">
     <td>${addedEmployee.firstName}</td>
     <td>${addedEmployee.lastName}</td>
     <td>${addedEmployee.employeeID}</td>
     <td>${addedEmployee.employeeTitle}</td>
     <td>${addedEmployee.annualSalary}</td>
+    <td><buttton class="deleteBtn" type="button">Delete</button></td>
     </tr>`);
 
 

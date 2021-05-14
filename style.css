@@ -15,3 +15,7 @@ table {
 #monthlyTotal, #submitBtn{
 float: right;
 }
+
+.red {
+    background-color: red;
+}
