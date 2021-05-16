@@ -10,9 +10,14 @@ function readyNow(){
 }
 
 function handleDelete() {
-    let deletedSalary = $(this).closest('.salary').text();
+
+     console.log($(this).closest('tr').data('salaryTotal').monthlySalaryPayData ) ;
+
+     monthlySalaryPay -= $(this).closest('tr').data('salaryTotal').monthlySalaryPayData ;
+
+     $('#monthlyTotal').text(`Total Monthly:$${monthlySalaryPay}`);
+
     console.log('clicked');
-    console.log(deletedSalary);
     $(this).closest('.dataRow').remove();
 
     
@@ -56,5 +61,9 @@ function addEmployee() {
     <td class = "salary">${addedEmployee.annualSalary}</td>
     <td><buttton class="deleteBtn" type="button">Delete</button></td>
     </tr>`);
+
+    $('tr').last().data('salaryTotal',{monthlySalaryPayData: parseFloat(addedEmployee.annualSalary / 12) } );
+
+    console.log($('tr').last().data('salaryTotal').monthlySalaryPayData ) ;
 
 }
